@@ -1,0 +1,14 @@
+.chatbot-button {
+    cursor: pointer;
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    border: none;
+    background-color: transparent;
+    width: 80px;
+  }
+  
+  .logo {
+    width: 100%;
+  }
+  

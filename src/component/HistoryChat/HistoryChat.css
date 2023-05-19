@@ -1,0 +1,56 @@
+.container-historyChat {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    overflow-y: auto;
+  }
+
+  .container-linkHistoryChat {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    text-decoration: none;
+    color: black;
+    position: fixed;
+    align-items: center;
+    right: 10px;
+    margin: 10px 20px;
+  }
+  
+  .chat-history {
+    height: 100%;
+    width: 90%;
+    margin-top: 15%;
+    margin-bottom: 20px;
+  }
+  .container-response {
+    padding: 2% 5%;
+    margin: 0;
+  }
+  
+  .prompt-history {
+    background-color: black;
+    color: white;
+    border-radius: 8px;
+    padding: 4%;
+    margin-bottom: 2%;
+  }
+  
+  .message-history {
+    display: flex;
+    align-items: center;
+    background-color: #eeeeee;
+    border-radius: 8px;
+    padding: 4%;
+  }
+
+  .container-emptyHistory{
+      margin: 30% 10%;
+      text-align: center;
+  }
+
+  .container-emptyHistory > p{
+      font-size: 1.4rem
+  }
