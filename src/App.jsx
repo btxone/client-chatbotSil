@@ -19,8 +19,8 @@ function App() {
 
   return (
     <>
-      <button className="chatbot-button" onClick={handleShowModal}>
-        <img className='logo' src={img} alt="robot nice image" />
+      <button className="rckchat_chatbot-button" onClick={handleShowModal}>
+        <img className='rckchat_logo' src={img} alt="robot nice image" />
       </button>
       {showModal &&
         <>

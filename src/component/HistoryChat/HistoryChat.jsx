@@ -6,7 +6,7 @@ import noMessage from "../../assets/noMessage.svg"
 import './HistoryChat.css'
 
 const email = "pau@gmail.com";
-const BASE_URL = 'https://chatbot-dev.up.railway.app/';
+const BASE_URL = 'https://chatbot-dev.up.railway.app/api/chatgpt';
 
 const HistoryChat = () => {
     const [historyChat, setHistoryChat] = useState([])

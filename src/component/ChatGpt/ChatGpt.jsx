@@ -7,7 +7,7 @@ import './ChatGpt.css'
 
 
 const email = "pau@gmail.com";
-const BASE_URL = 'https://chatbot-dev.up.railway.app/';
+const BASE_URL = 'https://chatbot-dev.up.railway.app/api/chatgpt';
 // console.log(BASE_URL);
 
 const ChatGpt = (props) => {
