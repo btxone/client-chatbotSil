@@ -1,6 +1,6 @@
 import React from 'react';
 import Target from '../Target/Target.jsx';
-import Footer from '../Footer/Footer.jsx';
+import Footer from '../Footer.jsx';
 import './Home.css'
 import Login from "../Login/Login.jsx"
 

@@ -1,12 +1,9 @@
 import React from "react";
-// import "./Footer.css";
 import { Link } from "react-router-dom";
 import logoHome from '../../assets/logoHome.svg';
 import logoChat from '../../assets/logoChat.svg';
 import logoHistory from "../../assets/file-lines-solid.svg";
 import styled from 'styled-components';
-
-
 
 const ContainerFooter = styled.div`
     display: flex;
