@@ -5,10 +5,8 @@ import robotLogo from '../assets/asistente-de-robot.png';
 import noMessage from "../assets/noMessage.svg"
 import styled from "styled-components"
 
-
 const email = "pau@gmail.com";
-const BASE_URL = 'https://chatbot-dev.up.railway.app/api/chatgpt';
-
+const BASE_URL = process.env.BASE_URL
 
 const ContainerHistoryChat = styled.div`
   height: 100%;
