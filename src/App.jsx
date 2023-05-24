@@ -1,9 +1,23 @@
-import './App.css'
-import Modal from './component/Modal/Modal.jsx'
+import Modal from './component/Modal.jsx'
 import React, { useState } from 'react';
-import img from "./assets/logo2.png"
-//este componente solo tiene el robot tierno, y llama al modal. 
+import img from "./assets/logo2.png";
+import styled from 'styled-components';
 
+const AppBtnBot = styled.button`
+  cursor: pointer;
+  position: fixed;
+  right: 10px;
+  bottom: 10px;
+  border: none;
+  background-color: transparent;
+  width: 80px;
+`
+
+const ImgBot = styled.img`
+   width: 100%;
+`
+
+//este componente solo tiene el robot tierno, y llama al modal. 
 
 function App() {
 
@@ -19,15 +33,14 @@ function App() {
 
   return (
     <>
-      <button className="rckchat_chatbot-button" onClick={handleShowModal}>
-        <img className='rckchat_logo' src={img} alt="robot nice image" />
-      </button>
+      <AppBtnBot onClick={handleShowModal}>
+        <ImgBot src={img} alt="robot nice image" />
+      </AppBtnBot>
       {showModal &&
         <>
           <Modal setShowModal={setShowModal} showModal={showModal} />
         </>
       }
-
     </>
   )
 }

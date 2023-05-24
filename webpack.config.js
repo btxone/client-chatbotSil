@@ -1,3 +1,4 @@
+const Dotenv = require('dotenv-webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
 const webpack = require('webpack');
@@ -18,6 +19,7 @@ module.exports = (env, { mode }) => {
       path: path.resolve(__dirname, 'build')
     },
     plugins: [
+      new Dotenv(),
       new webpack.DefinePlugin({
         BACKEND_URL: JSON.stringify(backendUrl)
       }),
