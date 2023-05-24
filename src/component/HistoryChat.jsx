@@ -6,7 +6,7 @@ import noMessage from "../assets/noMessage.svg"
 import styled from "styled-components"
 
 const email = "pau@gmail.com";
-const BASE_URL = process.env.BASE_URL
+const BASE_URL_SERVER = process.env.BASE_URL
 
 const ContainerHistoryChat = styled.div`
   height: 100%;
@@ -16,7 +16,7 @@ const ContainerHistoryChat = styled.div`
   align-items: center;
   overflow-y: auto;
 `
-const ContainerLinkHistoryChat = styled(Link)`
+const ContainerLinkHistoryChat = styled.button`
   display: flex;
   flex-direction: column;
   align-items: start;
@@ -26,6 +26,8 @@ const ContainerLinkHistoryChat = styled(Link)`
   align-items: center;
   right: 10px;
   margin: 10px 20px;
+  background-color: transparent;
+  border: none;
 `
 const ChatHistory = styled.div`
   height: 100%;
@@ -64,9 +66,15 @@ const EmptyHistoryText = styled.p`
   font-size: 1.4rem;
 `
 
-const HistoryChat = () => {
+const HistoryChat = (props) => {
     const [historyChat, setHistoryChat] = useState([])
+    const {setShowHome, setShowChat, setShowHistory } = props;
 
+    const handlerHome = () =>{
+        setShowHome(true)
+        setShowChat(false)
+        setShowHistory(false)
+    }
 
     useEffect(() => {
         async function fetchHistoryChat() {
@@ -98,7 +106,7 @@ const HistoryChat = () => {
     return (
         <ContainerHistoryChat>
             <ContainerLinkHistoryChat
-                to="/"
+                 onClick={()=>handlerHome()}
             >
                 <img style={{ width: "15px" }} src={backLogo} alt="back home" />
                 <span>Back</span>

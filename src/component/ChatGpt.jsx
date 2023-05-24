@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import backLogo from '../assets/circle-with-an-arrow-pointing-to-left_icon-icons.com_73625.png'
 import sendLogo from '../assets/arrow-pointing-right-in-a-circle_icon-icons.com_73672.png'
 import robotLogo from '../assets/asistente-de-robot.png'
 import styled from "styled-components"
 
 const email = "pau@gmail.com";
-const BASE_URL = process.env.BASE_URL
-console.log("es la base de la url", BASE_URL);
+const BASE_URL_SERVER = process.env.BASE_URL
 
 const ContainerChatGpt = styled.div`
   height: 100%;
@@ -32,13 +31,15 @@ const ContainerNavbarChat = styled.div`
   align-items: center;
 `
 
-const ContainerLinkChat = styled(Link)`
+const ContainerLinkChat = styled.button`
   display: flex;
   flex-direction: column;
   align-items: start;
   text-decoration: none;
   color: white;
   align-items: center;
+  background-color: transparent;
+  border: none;
 
   &:hover {
     text-decoration: underline;
@@ -134,12 +135,18 @@ const ChatGpt = (props) => {
     const [message, setMessage] = useState("")
     const [historyChat, setHistoryChat] = useState([])
     const [chat, setChat] = useState([])
-
-    const { setShowModal, showModal } = props;
+  
+    const { setShowModal, showModal, setShowHome, setShowChat, setShowHistory } = props;
 
     const handleCloseModal = () => {
         setShowModal(false)
     };
+
+    const handlerHome = () =>{
+      setShowHome(true)
+      setShowChat(false)
+      setShowHistory(false)
+  }
 
     useEffect(() => {
         async function fetchHistoryChat() {
@@ -212,7 +219,7 @@ const ChatGpt = (props) => {
         <ContainerChatGpt>
             <ContainerNavbarChat>
                 <ContainerLinkChat
-                    to="/"
+                    onClick={()=>handlerHome()}
                 >
                     <img style={{ width: "15px", backgroundColor:"beige", padding:"2px" }} src={backLogo} alt="back home" />
                 </ContainerLinkChat>
