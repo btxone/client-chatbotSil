@@ -1,4 +1,4 @@
-import React from 'react';
+import React , {useState} from 'react';
 import ChatGpt from './ChatGpt.jsx';
 import HistoryChat from './HistoryChat.jsx';
 import { Route, Routes } from "react-router-dom";
@@ -21,22 +21,18 @@ const ContainerModal = styled.div`
     margin-bottom: 110px;
     `
 
-
+//en este componente se crearon los estados para mostrar home, chat y history. importante recordar si creamos otro de enviar como props todos los set para ocultarlos o mostrarlos. ejemplo: si creamos el componente profile: hay que crear otro estado de [profile, setProfile] y enviar este nuevo set a todos los componentes y setearlo en false, y al componente Profile enviar todos los set existentes y solo dejar el setProfile en true. 
 const Modal = (props) => {
     const { setShowModal, showModal } = props;
-
-
-    // const handleCloseModal = () => {
-    //     setShowModal(false)
-    // };
+    const [showHome, setShowHome] = useState(true)
+    const [showChat, setShowChat] = useState(false)
+    const [showHistory, setShowHistory] = useState(false)
 
     return (
         <ContainerModal>
-            <Routes>
-                <Route path="*" element={<Home setShowModal={setShowModal} showModal={showModal}/>}></Route>
-                <Route path="/chat" element={<ChatGpt setShowModal={setShowModal} showModal={showModal}/>}></Route>
-                <Route path="/historyChat" element={<HistoryChat />}></Route>
-            </Routes>
+            {showHome && <Home setShowModal={setShowModal} showModal={showModal} setShowHome={setShowHome} setShowChat={setShowChat} setShowHistory={setShowHistory}/>}
+            {showChat && <ChatGpt setShowModal={setShowModal} showModal={showModal} setShowHome={setShowHome} setShowChat={setShowChat} setShowHistory={setShowHistory}/>}
+            {showHistory && <HistoryChat setShowHome={setShowHome} setShowChat={setShowChat} setShowHistory={setShowHistory}/>}
         </ContainerModal>
     );
 }

@@ -51,9 +51,8 @@ const HomeText = styled.p`
 
 `
 
-
 const Home = (props) => {
-    const { setShowModal, showModal } = props;
+    const { setShowModal, showModal, setShowHome,  setShowChat, setShowHistory } = props;
 
     const handleCloseModal = () => {
         setShowModal(false)
@@ -73,7 +72,7 @@ const Home = (props) => {
             </ContainerIntro>
             <Target title={"What is a Rackoot"} content={"When we talk about rackoot, we're referring to a virtual rack that hosts all your tiles. You have to give it a name and can add a description to it."} />
             <Target title={"What is a Tile"} content={"A tile is the equivalent of a bookmark, but we want to be more than that. That's why we have some exciting news coming soon, designed just for you."} />
-            <Footer />
+            <Footer setShowHome={setShowHome} setShowChat={setShowChat} setShowHistory={setShowHistory}/>
             {/* <Login></Login> */}
         </ContainerHome>
     );

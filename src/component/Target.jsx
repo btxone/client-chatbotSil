@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import ArrowUp from '../assets/arrow-up-solid.svg'
-import ArrowDown from '../assets/arrow-down-solid.svg'
+import ArrowUp from '../../public/assets/arrow-up-solid.svg'
+import ArrowDown from '../../public/assets/arrow-down-solid.svg'
 import styled from 'styled-components';
 
 const ContainerTarget = styled.div`

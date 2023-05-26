@@ -1,12 +1,11 @@
-import { Link } from 'react-router-dom';
-import backLogo from '../assets/arrow-left-solid.svg'
 import React, { useState, useEffect } from 'react';
-import robotLogo from '../assets/asistente-de-robot.png';
-import noMessage from "../assets/noMessage.svg"
+import backLogo from '../../public/assets/arrow-left-solid.svg'
+import robotLogo from '../../public/assets/asistente-de-robot.png';
+import noMessage from "../../public/assets/noMessage.svg"
 import styled from "styled-components"
 
 const email = "pau@gmail.com";
-const BASE_URL = process.env.BASE_URL
+const BASE_URL_SERVER = process.env.BASE_URL_SERVER
 
 const ContainerHistoryChat = styled.div`
   height: 100%;
@@ -16,7 +15,7 @@ const ContainerHistoryChat = styled.div`
   align-items: center;
   overflow-y: auto;
 `
-const ContainerLinkHistoryChat = styled(Link)`
+const ContainerLinkHistoryChat = styled.button`
   display: flex;
   flex-direction: column;
   align-items: start;
@@ -26,6 +25,8 @@ const ContainerLinkHistoryChat = styled(Link)`
   align-items: center;
   right: 10px;
   margin: 10px 20px;
+  background-color: transparent;
+  border: none;
 `
 const ChatHistory = styled.div`
   height: 100%;
@@ -64,9 +65,15 @@ const EmptyHistoryText = styled.p`
   font-size: 1.4rem;
 `
 
-const HistoryChat = () => {
+const HistoryChat = (props) => {
     const [historyChat, setHistoryChat] = useState([])
+    const {setShowHome, setShowChat, setShowHistory } = props;
 
+    const handlerHome = () =>{
+        setShowHome(true)
+        setShowChat(false)
+        setShowHistory(false)
+    }
 
     useEffect(() => {
         async function fetchHistoryChat() {
@@ -79,7 +86,7 @@ const HistoryChat = () => {
 
     const getChatGPT = async (email) => {
         try {
-            const response = await fetch(`${BASE_URL}?email=${email}`, {
+            const response = await fetch(`${BASE_URL_SERVER}?email=${email}`, {
                 method: "GET",
                 headers: {
                     "Content-Type": "application/json"
@@ -98,7 +105,7 @@ const HistoryChat = () => {
     return (
         <ContainerHistoryChat>
             <ContainerLinkHistoryChat
-                to="/"
+                 onClick={()=>handlerHome()}
             >
                 <img style={{ width: "15px" }} src={backLogo} alt="back home" />
                 <span>Back</span>
