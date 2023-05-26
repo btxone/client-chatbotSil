@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
 // import { Link } from 'react-router-dom';
-import backLogo from '../assets/circle-with-an-arrow-pointing-to-left_icon-icons.com_73625.png'
-import sendLogo from '../assets/arrow-pointing-right-in-a-circle_icon-icons.com_73672.png'
-import robotLogo from '../assets/asistente-de-robot.png'
+import backLogo from "../../public/assets/circle-with-an-arrow-pointing-to-left_icon-icons.com_73625.png"
+import sendLogo from '../../public/assets/arrow-pointing-right-in-a-circle_icon-icons.com_73672.png'
+import robotLogo from '../../public/assets/asistente-de-robot.png'
 import styled from "styled-components"
 
 const email = "pau@gmail.com";
-const BASE_URL_SERVER = process.env.BASE_URL
+const BASE_URL_SERVER = process.env.BASE_URL_SERVER
 
 const ContainerChatGpt = styled.div`
   height: 100%;
@@ -175,7 +175,7 @@ const ChatGpt = (props) => {
 
     const getChatGPT = async (email) => {
         try {
-            const response = await fetch(`${BASE_URL}?email=${email}`, {
+            const response = await fetch(`${BASE_URL_SERVER}?email=${email}`, {
                 method: "GET",
                 headers: {
                     "Content-Type": "application/json"

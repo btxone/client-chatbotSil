@@ -3,9 +3,12 @@ import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
 import { BrowserRouter } from "react-router-dom";
 
-/*! For license information please see main.js.LICENSE.txt */
+const generateUniqueId = () => {
+  return Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
+};
+
 const rootDiv = document.createElement('div');
-const rootId = 'rckcccc_root'
+const rootId = generateUniqueId();
 rootDiv.id = rootId;
 
 // Agrega el elemento div al body del documento

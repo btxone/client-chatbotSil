@@ -1,6 +1,6 @@
 import Modal from './component/Modal.jsx'
 import React, { useState } from 'react';
-import img from "./assets/logo2.png";
+import img from "../public/assets/logo2.png";
 import styled from 'styled-components';
 
 const AppBtnBot = styled.button`

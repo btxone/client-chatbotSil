@@ -1,8 +1,7 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import logoHome from '../assets/logoHome.svg';
-import logoChat from '../assets/logoChat.svg';
-import logoHistory from "../assets/file-lines-solid.svg";
+import logoHome from '../../public/assets/logoHome.svg';
+import logoChat from '../../public/assets/logoChat.svg';
+import logoHistory from "../../public/assets/file-lines-solid.svg";
 import styled from 'styled-components';
 
 const ContainerFooter = styled.div`

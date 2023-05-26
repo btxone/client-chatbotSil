@@ -67,6 +67,7 @@ module.exports = (env, { mode }) => {
           ]
         }
       ]
-    }
+    },
+    watch: true 
   };
 };
